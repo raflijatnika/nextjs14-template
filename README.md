@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS 14 Template
+This is NextJS Template using version 14 that you can see the documentation [here](https://nextjs.org/docs)
 
-## Getting Started
+## Package / Library Included
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn](https://ui.shadcn.com/docs)
+- [ESLint](https://eslint.org/)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Commit Linter](https://commitlint.js.org/#/)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+
+Project structure for this Next starter
+```javascript
+.husky                         // Contain husky configuration
+.next                          // Contain Next framework configuration
+.vscode                        // Contain vscode configuration to force local
+node_modules                   // Contain modules / third parties
+public                         // Contain public assets & etc
+app                            // Entry point for the app.
+├── {feature-name-folder}      // Contain your feature files, the the structure same as app folder (but isolated functionality)
+├── layout.tsx                 // File for rendering layout (app layout)
+├── loading.tsx                // File for rendering loading (app loading)
+└── page.tsx                   // File for rendering page (app (/) main page)
+components                     // Contain all base components or reusable
+├── ui                         // Contain all reusable components
+└── {another-component=folder} // Your desired reusable component folder name
+constants                      // Contain all constants
+styles                         // Contain all global styles
+└── global.scss                // Contain global styles and tailwind styles
+lib                            // Contain library config
+└── utils.ts                   // Tailwind and shadcn merge config
+.eslint.json                   // File config for eslint
+.prettierrc                    // File config for prettier
+commitlint.config.js           // File config for commitlint
+next-env.d.ts                  // File config for type definition
+next.config.js                 // File config for next framework
+package.json                   // File config for your project
+pnpm-lock.yaml                 // File config for locking project packages (READONLY FILE!)
+postcss.config.js              // File config for postcss
+README.md                      // File for documentation (HEY YOU READING ME NOW!)
+tailwind.config.js             // File config for tailwind
+components.json                // File config for shadcn components
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ref: [Next Project Structure](https://nextjs.org/docs/getting-started/project-structure)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you want to create folder outside declared above, you can create, but, don't forget to update this docs.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+1; Install dependencies using pnpm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```shell
+pnpm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Available commands for start and build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run next app with turbopack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```shell
+pnpm run dev:turbo
+```
+
+Build next app
+
+```shell
+pnpm run build
+```
+
+---
+
+## Available commands for linting
+
+Run linter and will search for problems, but will not fix
+
+```shell
+pnpm lint
+```
+
+Run linter and will search and try to fix the problems.
+
+```shell
+pnpm lint:fix
+```
+
+Run linter and will call prettier to fix the code style.
+
+```shell
+pnpm lint:format
+```
+
+---
+
+## Commit Style
+Please use commitizen format to commit for example you can see [Here](https://www.npmjs.com/package/commitizen)
